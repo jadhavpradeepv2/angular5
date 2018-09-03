@@ -1,0 +1,49 @@
+#header-wrapper {
+    overflow: hidden;
+    background-size: 100%;
+    padding: 6em 0em 2em 0em;
+    background: #333333;
+}
+
+#header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+#logo {
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 2em 0em;
+    text-transform: uppercase;
+}
+
+#logo h1 {
+    letter-spacing: 0.10em;
+    font-size: 3em;
+}
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+user agent stylesheet
+h1 {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #FFF;
+}
