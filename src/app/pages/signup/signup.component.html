@@ -1,0 +1,103 @@
+<form class="form-horizontal" [formGroup]="myform" (ngSubmit)="onSubmit()" novalidate>
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register Yourself</legend>
+    </div>
+    <div class="control-group form-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input required="required" type="text" formControlName="username" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
+        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+    <fieldset formGroupName="name">
+      <div class="control-group form-group">
+        <!-- Username -->
+        <label class="control-label"  for="firstname">First Name</label>
+        <div class="controls">
+          <input required="required" type="text" formControlName="firstName" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
+          <p class="help-block">Firstname can contain any letters or numbers, without spaces</p>
+        </div>
+      </div>
+      <div class="control-group form-group">
+        <!-- Username -->
+        <label class="control-label"  for="lastname">Last Name</label>
+        <div class="controls">
+          <input required="required" type="text" formControlName="lastName" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
+          <p class="help-block">Lastname can contain any letters or numbers, without spaces</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="control-group form-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input required="required" type="text" formControlName="email" class="input-xlarge form-control">
+        <!-- <p class="help-block">Please provide your E-mail</p> -->
+      </div>
+    </div>
+ 
+    <div class="control-group form-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input required="required" type="password" formControlName="password" class="input-xlarge form-control">
+        <!-- <p class="help-block">Password should be at least 4 characters</p> -->
+        <div class="form-control-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
+          <p *ngIf="password.errors.required">Password is required</p>
+          <p *ngIf="password.errors.minlength">Password must be 8 characters long</p>
+        </div>          
+      </div>
+    </div>
+ 
+    <div class="control-group form-group">
+      <!-- Password -->
+      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+      <div class="controls">
+        <input required="required" type="password" formControlName="password" class="input-xlarge form-control">
+        <!-- <p class="help-block">Please confirm password</p> -->
+        <div class="form-control-feedback" *ngIf="password.errors && (password.dirty || password.touched)">
+          <p *ngIf="password.errors.required">Password is required</p>
+          <p *ngIf="password.errors.minlength">Password must be 8 characters long</p>
+        </div>
+      </div>
+    </div>
+    <div class="control-group form-group">
+      <!-- Username -->
+      <label class="control-label"  for="age">Age</label>
+      <div class="controls">
+        <input type="text" formControlName="age" class="input-xlarge form-control">
+        <!-- <p class="help-block">Age can contain any letters or numbers, without spaces</p> -->
+      </div>
+    </div>
+    <div class="control-group form-group">
+      <!-- Username -->
+      <label class="control-label"  for="gender">Gender</label>
+      <div class="controls">
+        <select class="form-control" for="gender">
+          <option value="">Please select a Gender</option>
+          <option *ngFor="let gen of genders"
+            [value]="gen"> {{gen}} </option>
+        </select>
+        <!-- <p class="help-block">Gender can contain any letters or numbers, without spaces</p> -->
+      </div>
+    </div>
+    <div class="control-group form-group">
+      <!-- Username -->
+      <label class="control-label"  for="phone">Phone</label>
+      <div class="controls">
+        <input required="required" class="input-xlarge form-control" formControlName="phoneNumber" type="text" autocomplete="off" maxlength="12"/>
+        <!-- <p class="help-block">Phone can contain any letters or numbers, without spaces</p> -->
+      </div>
+    </div>
+ 
+    <div class="control-group form-group">
+      <!-- Button -->
+      <div class="controls">
+        <input type="submit" class="btn btn-success" value="Register">
+      </div>
+    </div>
+  </fieldset>
+</form>

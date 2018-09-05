@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,6 +13,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
   {
@@ -34,6 +37,10 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
     path: '',
     redirectTo: '/homepage',
     pathMatch: 'full'
@@ -50,13 +57,17 @@ const routes: Routes = [
     AboutComponent,
     BlogComponent,
     PortfolioComponent,
-    ContactComponent
+    ContactComponent,
+    SignupComponent
   ],
   imports: [
     RouterModule.forRoot(
       routes
     ),
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

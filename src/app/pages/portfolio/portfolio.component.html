@@ -4,14 +4,24 @@
 			<div class="title">
 				<h2>Latest Post</h2>
 			</div>
-			<ul class="style1">
-				<li><a href="#">Semper mod quis eget mi dolore</a></li>
-				<li><a href="#">Quam turpis feugiat sit dolor</a></li>
-				<li><a href="#">Amet ornare in hendrerit in lectus</a></li>
-				<li><a href="#">Consequat etiam lorem phasellus</a></li>
-				<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-				<li><a href="#">Semper mod quisturpis nisi</a></li>
-			</ul>
+			<div>
+				<p>Your list is now {{ listCount }}</p>
+			</div>
+
+			<form>
+				<input type="text" class="txt" name="item" placeholder="You enter here..." [(ngModel)]="inputText">
+
+				<input type="submit" class="btn" [value]="btnText" (click)="AddInput()">
+			</form>
+			<br>
+			<div>
+				<p>List of added items:</p>
+				<br>
+				<p class="list" *ngFor="let item of inputList" >
+					{{ item }}
+				</p>
+			</div>
+
 		</div>
 		</div>
 	</div>
