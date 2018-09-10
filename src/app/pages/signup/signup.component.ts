@@ -8,8 +8,7 @@ import { ReactiveFormsModule,
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpService } from '../../httpservice.service';
-//import 'rxjs/add/operator/map';
-//import { Http, Headers } from '@angular/http';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -24,38 +23,39 @@ export class SignupComponent implements OnInit {
     'Female',
     'Other',
   ];
-  firstName: FormControl;
-  lastName: FormControl;
+  fname: FormControl;
+  lname: FormControl;
   email: FormControl;
   password: FormControl;
   gender: FormControl;
   username: FormControl;
-  phoneNumber: FormControl;
+  phone: FormControl;
   age: FormControl;
 
   constructor(
     private http: HttpClient,
     private _httpService: HttpService,
+    private router: Router
   ) { }
 
   createForm() {
     this.myform = new FormGroup({
       name: new FormGroup({
-        firstName: this.firstName,
-        lastName: this.lastName,
+        fname: this.fname,
+        lname: this.lname,
       }),
       email: this.email,
       password: this.password,
       gender: this.gender,
       username: this.username,
-      phoneNumber: this.phoneNumber,
+      phone: this.phone,
       age: this.age
     });
   }
 
   createFormControls() {
-    this.firstName = new FormControl("", Validators.required);
-    this.lastName = new FormControl("", Validators.required);
+    this.fname = new FormControl("", Validators.required);
+    this.lname = new FormControl("", Validators.required);
     this.username = new FormControl("", Validators.required);
     this.email = new FormControl("", [
       Validators.required,
@@ -67,7 +67,7 @@ export class SignupComponent implements OnInit {
     ]);
     this.age = new FormControl("");
     this.gender = new FormControl("");
-    this.phoneNumber = new FormControl("");
+    this.phone = new FormControl("");
   }
 
   ngOnInit() {
@@ -77,8 +77,13 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (this.myform.valid) {
-      this._httpService.doPOST(this.myform.value);
-      this.myform.reset();
+      let response = this._httpService.doPOST(this.myform.value);
+      if(response['success']) {
+        this.myform.reset();
+        this.router.navigate(['homepage']);
+      } else {
+
+      }
     }
   }
 }

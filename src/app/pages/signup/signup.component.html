@@ -16,7 +16,7 @@
         <!-- Username -->
         <label class="control-label"  for="firstname">First Name</label>
         <div class="controls">
-          <input required="required" type="text" formControlName="firstName" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
+          <input required="required" type="text" formControlName="fname" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
           <p class="help-block">Firstname can contain any letters or numbers, without spaces</p>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <!-- Username -->
         <label class="control-label"  for="lastname">Last Name</label>
         <div class="controls">
-          <input required="required" type="text" formControlName="lastName" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
+          <input required="required" type="text" formControlName="lname" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
           <p class="help-block">Lastname can contain any letters or numbers, without spaces</p>
         </div>
       </div>
@@ -76,7 +76,7 @@
       <!-- Username -->
       <label class="control-label"  for="gender">Gender</label>
       <div class="controls">
-        <select class="form-control" for="gender">
+        <select class="form-control" for="gender" formControlName="gender">
           <option value="">Please select a Gender</option>
           <option *ngFor="let gen of genders"
             [value]="gen"> {{gen}} </option>
@@ -88,7 +88,7 @@
       <!-- Username -->
       <label class="control-label"  for="phone">Phone</label>
       <div class="controls">
-        <input required="required" class="input-xlarge form-control" formControlName="phoneNumber" type="text" autocomplete="off" maxlength="12"/>
+        <input required="required" class="input-xlarge form-control" formControlName="phone" type="text" autocomplete="off" maxlength="12"/>
         <!-- <p class="help-block">Phone can contain any letters or numbers, without spaces</p> -->
       </div>
     </div>
