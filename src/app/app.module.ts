@@ -14,6 +14,9 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { HttpService } from './httpservice.service';
+import { ParentComponentComponent } from './parent-child/parent-component/parent-component.component';
+import { ChildComponentComponent } from './parent-child/parent-component/child-component/child-component.component';
 
 const routes: Routes = [
   {
@@ -41,6 +44,10 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
+    path: 'express',
+    component: ParentComponentComponent
+  },
+  {
     path: '',
     redirectTo: '/homepage',
     pathMatch: 'full'
@@ -58,7 +65,9 @@ const routes: Routes = [
     BlogComponent,
     PortfolioComponent,
     ContactComponent,
-    SignupComponent
+    SignupComponent,
+    ParentComponentComponent,
+    ChildComponentComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -69,7 +78,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

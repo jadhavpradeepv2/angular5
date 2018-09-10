@@ -1,0 +1,15 @@
+<div id="legend">
+  <legend class="">Express Yourself</legend>
+</div>
+<div class="form-group">
+  <!-- Username -->
+  <label class="control-label"  for="anything">Type anything</label>
+  <div class="controls">
+    <input required="required" type="text" [(ngModel)]="anythingText" maxlength="50" formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
+  </div>
+  <a type="button" (click)="submit()">Sent To Parent</a>
+</div>
+
+<app-child-component [messageToChild]="parentMessage" (messageToparent)="receiveMessage($event)"></app-child-component>
+<br>
+<p>Child Says: {{ childMessage }}</p>

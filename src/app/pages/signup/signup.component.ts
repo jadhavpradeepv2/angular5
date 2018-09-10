@@ -7,7 +7,8 @@ import { ReactiveFormsModule,
   FormBuilder
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import { HttpService } from '../../httpservice.service';
+//import 'rxjs/add/operator/map';
 //import { Http, Headers } from '@angular/http';
 
 @Component({
@@ -16,8 +17,6 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-  private signupUrl = 'http://localhost:3000/v1/users';
   myform: FormGroup;
 
   genders: string[] = [
@@ -34,7 +33,10 @@ export class SignupComponent implements OnInit {
   phoneNumber: FormControl;
   age: FormControl;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private _httpService: HttpService,
+  ) { }
 
   createForm() {
     this.myform = new FormGroup({
@@ -75,16 +77,8 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (this.myform.valid) {
-      console.log("Form Submitted!");
-      console.log(this.myform.value);
-      this.doPOST(this.myform.value);
+      this._httpService.doPOST(this.myform.value);
       this.myform.reset();
     }
-  }
-
-  doPOST(data) {
-    let isJsonResponse = true;
-    let url = `${this.signupUrl}`;
-    return this.http.post(url, data, { headers: new HttpHeaders({ "Content-Type": "application/x-www-form-urlencoded" }) });
   }
 }

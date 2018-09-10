@@ -11,6 +11,11 @@ export class PortfolioComponent implements OnInit {
   inputText: string = "Enter any text";
   inputList = [];
 
+  title:string = 'Angular 4 Project!';
+  todaydate:Date = new Date();
+  jsonval:any = {name:'Rox', age:'25', address:{a1:'Mumbai', a2:'Karnataka'}};
+  months = ["Jan", "Feb", "Mar", "April", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
   constructor() { }
 
   ngOnInit() {
