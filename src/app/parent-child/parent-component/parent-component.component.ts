@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ChildComponentComponent } from './child-component/child-component.component';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-parent-component',
@@ -11,17 +12,19 @@ export class ParentComponentComponent implements OnInit {
   parentMessage: string = "that express yourself";
   anythingText: string;
   childMessage: string;
+  message:  string;
 
   @ViewChild(ChildComponentComponent) child;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.currentMessage.subscribe(message => this.message = message)
   }
 
-  // ngAfterViewInit() {
-  //   this.childMessage = this.child.message;
-  // }
+  ngAfterViewInit() {
+
+  }
 
   submit(){
     this.parentMessage = this.anythingText;

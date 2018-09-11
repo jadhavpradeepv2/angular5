@@ -13,3 +13,8 @@
 <app-child-component [messageToChild]="parentMessage" (messageToparent)="receiveMessage($event)"></app-child-component>
 <br>
 <p>Child Says: {{ childMessage }}</p>
+<br>
+<br>
+<h4>Parent:</h4>
+<p>This is for sibling data sharing: {{message}} </p>
+<app-sibling-component></app-sibling-component>

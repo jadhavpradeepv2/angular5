@@ -17,6 +17,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HttpService } from './httpservice.service';
 import { ParentComponentComponent } from './parent-child/parent-component/parent-component.component';
 import { ChildComponentComponent } from './parent-child/parent-component/child-component/child-component.component';
+import { SiblingComponentComponent } from './parent-child/sibling-component/sibling-component.component';
 
 const routes: Routes = [
   {
@@ -67,7 +68,8 @@ const routes: Routes = [
     ContactComponent,
     SignupComponent,
     ParentComponentComponent,
-    ChildComponentComponent
+    ChildComponentComponent,
+    SiblingComponentComponent
   ],
   imports: [
     RouterModule.forRoot(
