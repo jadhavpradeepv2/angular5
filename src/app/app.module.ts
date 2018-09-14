@@ -25,13 +25,17 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
-    path: 'about',
+    path: 'employees',
     component: AboutComponent,
   },
-  {
-    path: 'blog',
-    component: BlogComponent,
+  { 
+    path: "employee/:id", 
+    component: BlogComponent 
   },
+  // {
+  //   path: 'blog',
+  //   component: BlogComponent,
+  // },
   {
     path: 'portfolio',
     component: PortfolioComponent,

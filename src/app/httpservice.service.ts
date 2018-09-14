@@ -1,14 +1,25 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
+import { Employee } from './employees';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
+  employees = [
+    new Employee(1, 'Amol', "Panvel"),
+    new Employee(2, 'Baban', "Vashi"),
+    new Employee(3, 'Charley', "Nerul"),
+    new Employee(4, 'Don', "Kalamboli"),
+    new Employee(5, 'Suman', "Kharghar"),
+    new Employee(6, 'Prakash', "kamothe")
+  ];
   constructor(private http: HttpClient) { }
 
+  private empSource = new BehaviorSubject(this.employees);
+  empList = this.empSource.asObservable();
   
   doPOST(data) {
     let body = {

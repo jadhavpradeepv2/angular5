@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../httpservice.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
-
+  title = 'Tour of Employees';
+  employees;
+  
+  constructor( private httpService: HttpService ) { }
+  
   ngOnInit() {
+    this.httpService.empList.subscribe(list => this.employees = list);
   }
 
+  routeToEmp() {
+    
+  }
 }
