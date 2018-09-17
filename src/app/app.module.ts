@@ -18,6 +18,9 @@ import { HttpService } from './httpservice.service';
 import { ParentComponentComponent } from './parent-child/parent-component/parent-component.component';
 import { ChildComponentComponent } from './parent-child/parent-component/child-component/child-component.component';
 import { SiblingComponentComponent } from './parent-child/sibling-component/sibling-component.component';
+import { AuthGuard } from './auth.guard';
+import { LoggedInUsersGuardGuard } from './logged-in-users-guard.guard';
+import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -30,7 +33,8 @@ const routes: Routes = [
   },
   { 
     path: "employee/:id", 
-    component: BlogComponent 
+    component: BlogComponent,
+    canActivate: [LoggedInUsersGuardGuard, AuthGuard ],
   },
   // {
   //   path: 'blog',
@@ -47,6 +51,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
   },
   {
     path: 'express',
@@ -73,7 +81,8 @@ const routes: Routes = [
     SignupComponent,
     ParentComponentComponent,
     ChildComponentComponent,
-    SiblingComponentComponent
+    SiblingComponentComponent,
+    SigninComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -84,7 +93,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, AuthGuard, LoggedInUsersGuardGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
