@@ -47,11 +47,14 @@ export class SigninComponent implements OnInit {
 
   onSubmit() {
     if (this.signinform.valid) {
-      let response = this._httpService.doSignIn(this.signinform.value).do(d => {
-        
+      let response = this._httpService.doSignIn(this.signinform.value);
+      response.then((res) => {
+        this.signinform.reset();
+        this.router.navigate(['homepage']);
+        console.log("Login form submission success");
+      }).catch((err) => {
+        console.log("Login form submit error");
       });
-      this.signinform.reset();
-      //this.router.navigate(['homepage']);
     }
   }
 

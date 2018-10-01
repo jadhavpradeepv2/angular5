@@ -3,10 +3,13 @@ import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Employee } from './employees';
 import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+
+  results: any;
 
   employees = [
     new Employee(1, 'Amol', "Panvel"),
@@ -64,30 +67,34 @@ export class HttpService {
   doSignIn(data) {
     let url = environment.config.baseURL + "users/login";
 
-    return this.http.post(url, data).
-    subscribe(
-      data => {
-        if (data['success']) {
-          console.log("success");
-          return data;
-        } else {
-          console.log("Failed to login User");
-          return false;
-        }
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-        // A client-side or network error occurred. Handle it accordingly.
-        console.log('An error occurred:', err.error.message);
-        //error(err.error.message);
-        } else {
-        // The backend returned an unsuccessful response code.
-        // The response body may contain clues as to what went wrong,
-        console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-        //error(err.error);
-        }
-      //reject(err.error); 
+    let promise = new Promise((resolve, reject) => {
+      return this.http.post(url, data)
+      .subscribe(
+        data => {
+          if (data['success']) {
+            console.log("success");
+            localStorage.setItem('userToken', data['token']);
+            resolve(data);
+          } else {
+            console.log("Failed to login User");
+            reject(data);
+          }
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An error occurred:', err.error.message);
+          //error(err.error.message);
+          } else {
+          // The backend returned an unsuccessful response code.
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+          //error(err.error);
+          }
+        reject(err.error);
       });
+    });
+
+    return promise;
   }
 
 }
