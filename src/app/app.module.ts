@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,6 +21,7 @@ import { SiblingComponentComponent } from './parent-child/sibling-component/sibl
 import { AuthGuard } from './auth.guard';
 import { LoggedInUsersGuardGuard } from './logged-in-users-guard.guard';
 import { SigninComponent } from './pages/signin/signin.component';
+import { InterceptService } from './intercept.service';
 
 const routes: Routes = [
   {
@@ -93,7 +94,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [HttpService, AuthGuard, LoggedInUsersGuardGuard],
+  providers: [HttpService, AuthGuard, LoggedInUsersGuardGuard, { provide: HTTP_INTERCEPTORS, useClass: InterceptService, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
