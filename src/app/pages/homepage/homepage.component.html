@@ -1,25 +1,39 @@
 <div id="page" class="container">
-  <div id="content">
-    <div class="title">
-      <h2>Integer sit amet aliquet</h2>
-      <span class="byline">Phasellus nec erat sit amet nibh pellentesque congue</span> </div>
-    <p>This is <strong>ClearFigure</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
-    <p>Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.  Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. </p>
-  </div>
-  <div id="sidebar">
-    <div class="box2">
-      <div class="title">
-        <h2>Integer gravida</h2>
-      </div>
-      <ul class="style2">
-        <li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-        <li><a href="#">Ornare in hendrerit in lectus</a></li>
-        <li><a href="#">Semper mod quis eget mi dolore</a></li>
-        <li><a href="#">Quam turpis feugiat sit dolor</a></li>
-        <li><a href="#">Amet ornare in hendrerit in lectus</a></li>
-        <li><a href="#">Quam turpis feugiat sit dolor</a></li>
-        <li><a href="#">Consequat etiam lorem phasellus</a></li>
-      </ul>
-    </div>
+  <div>
+    <h2>Add employee</h2>
+    <form class="form-horizontal" [formGroup]="myEmpform" (ngSubmit)="onSubmit()" novalidate>
+        <fieldset>
+          <div class="control-group form-group">
+            <!-- ID -->
+            <label class="control-label"  for="age">ID</label>
+            <div class="controls">
+              <input type="text" formControlName="id" class="input-xlarge form-control">
+              <!-- <p class="help-block">Age can contain any letters or numbers, without spaces</p> -->
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <!-- Name -->
+            <label class="control-label"  for="name">Name</label>
+            <div class="controls">
+              <input required="required" type="text" formControlName="name" maxlength="50" format formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
+              <p class="help-block">Name can contain any letters or numbers, without spaces</p>
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <!-- Location -->
+            <label class="control-label" for="location">Location</label>
+            <div class="controls">
+              <input required="required" type="text" formControlName="location" class="input-xlarge form-control">
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <!-- Button -->
+            <div class="controls">
+              <input type="submit" class="btn btn-success" value="Add Employee">
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      
   </div>
 </div>

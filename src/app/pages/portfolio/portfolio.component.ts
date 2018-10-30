@@ -23,8 +23,10 @@ export class PortfolioComponent implements OnInit {
   }
 
   AddInput() {
-    this.inputList.push(this.inputText);
-    this.inputText = '';
-    this.listCount = this.inputList.length;
+    if(this.inputText != '' ) {
+      this.inputList.push(this.inputText);
+      this.inputText = '';
+      this.listCount = this.inputList.length;
+    }
   }
 }

@@ -3,8 +3,12 @@
     <h3>Employees List: </h3>
         <table>
           <th>ID</th><th>Name</th>
-            <tr *ngFor="let emp of employees">
-              <td><a routerLink="/employee/{{emp.id}}">{{ emp.id }}</a></td><td>{{ emp.name }}</td>
+            <tr *ngFor="let emp of employees" [ngSwitch]="emp.location">
+              <!-- <td *ngSwitchCase="'Panvel'" class="text-success"><a routerLink="/employee/{{emp.id}}">{{ emp.id }}</a></td><td *ngSwitchCase="'Panvel'" class="text-success">{{ emp.name }}</td>
+              <td *ngSwitchCase="'Vashi'" class="text-primary"><a routerLink="/employee/{{emp.id}}">{{ emp.id }}</a></td><td *ngSwitchCase="'Vashi'" class="text-primary">{{ emp.name }}</td>
+              <td *ngSwitchCase="'Nerul'" class="text-primary"><a routerLink="/employee/{{emp.id}}">{{ emp.id }}</a></td><td *ngSwitchCase="'Nerul'" class="text-primary">{{ emp.name }}</td>
+              <td *ngSwitchCase="'Kalamboli'" class="text-danger"><a routerLink="/employee/{{emp.id}}">{{ emp.id }}</a></td><td *ngSwitchCase="'Kalamboli'" class="text-danger">{{ emp.name }}</td> -->
+              <td *ngSwitchDefault class="text-warning"><a routerLink="/employee/{{emp.id}}">{{ emp.id }}</a></td><td *ngSwitchDefault class="text-warning">{{ emp.name }}</td>
             </tr>
         </table>
   </div>

@@ -14,23 +14,29 @@
 				<input type="submit" class="btn" [value]="btnText" (click)="AddInput()">
 			</form>
 			<br>
-			<div>
-				<p>List of added items:</p>
-				<br>
-				<p class="list" *ngFor="let item of inputList" >
-					{{ item  | lowercase }}
-				</p>
-			</div>
+			<ng-container *ngIf="inputList.length">
+				<!-- <div [ngStyle]="{'background-color':inputList.length >  2 ? 'green' : 'red' }"> -->
+				<div [ngClass]="{'text-success': true}">
+					<p>List of added items:</p>
+					<br>
+					<p class="list" *ngFor="let item of inputList" >
+						{{ item  | lowercase }}
+					</p>
+				</div>
+			</ng-container>
 			<div>
 				<p>Pipes example</p>
 				<h1>Currency Pipe</h1>
       				<b>{{6589.23 | currency:"INR"}}</b><br/>
-				  	<b>{{6589.23 | currency:"USD":true}}</b>
+					  <b>{{6589.23 | currency:"USD"	}}</b><br>
+					  <b>{{6589.23 | currency:"CAD"}}</b>
 				<h1>Date pipe</h1>
 					<b>{{todaydate | date:'d/M/y'}}</b><br/>
-					<b>{{todaydate | date:'shortTime'}}</b>
+					<b>{{todaydate | date:'shortTime'}}</b><br/>
+					<b>{{todaydate | date:'fullDate'}}</b>
 				<h1>Decimal Pipe</h1>
-					<b>{{ 454.78787814 | number: '3.4-4' }}</b>
+					<b>{{ 454.78787814 | number: '3.4-4' }}</b><br/>
+					<b>{{ 454.78787814 | number: '3.1-2' }}</b>
 				<h1>Json Pipe</h1>
 					<b>{{ jsonval | json }}</b>
 				<h1>Percent Pipe</h1>

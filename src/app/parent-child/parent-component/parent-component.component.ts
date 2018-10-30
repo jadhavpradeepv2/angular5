@@ -23,7 +23,7 @@ export class ParentComponentComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-
+    this.message = this.child.message;
   }
 
   submit(){

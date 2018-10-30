@@ -24,6 +24,18 @@ export class HttpService {
   private empSource = new BehaviorSubject(this.employees);
   empList = this.empSource.asObservable();
   
+  addEmployee(data) {
+    let response;
+    if(this.employees.push(new Employee(data.id, data.name, data.location))) {
+      response['success'] = true;
+      return response;
+    }
+    else {
+      response['success'] = false;
+      return response;
+    }
+  }
+
   doPOST(data) {
     let body = {
         username  : data.username,
