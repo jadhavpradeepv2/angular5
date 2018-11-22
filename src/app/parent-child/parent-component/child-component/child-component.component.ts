@@ -9,7 +9,7 @@ export class ChildComponentComponent implements OnInit {
 
   @Input() messageToChild:  string;
   message = 'Child says via ViewChild.';
-  messageFromChild: string = 'Child says via Output.';
+  messageFromChild = 'Child says via Output.';
 
   @Output() messageToparent = new EventEmitter();
 

@@ -8,10 +8,10 @@ export class DataService {
 
   constructor() { }
 
-  private messageSource = new BehaviorSubject('This is default msg');
+  private messageSource = new BehaviorSubject<any>('This is default msg');
   currentMessage = this.messageSource.asObservable();
 
   changeMessage(message: string) {
-    this.messageSource.next(message)
+    this.messageSource.next(message);
   }
 }

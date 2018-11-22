@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 })
 export class ParentComponentComponent implements OnInit {
 
-  parentMessage: string = "that express yourself";
+  parentMessage = 'that express yourself';
   anythingText: string;
   childMessage: string;
   message:  string;
@@ -19,14 +19,14 @@ export class ParentComponentComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.currentMessage.subscribe(message => this.message = message)
+    this.dataService.currentMessage.subscribe(message => this.message = message);
   }
 
-  ngAfterViewInit() {
-    //this.message = this.child.message;
-  }
+  // ngAfterViewInit() {
+  //   //this.message = this.child.message;
+  // }
 
-  submit(){
+  submit() {
     this.parentMessage = this.anythingText;
   }
 
