@@ -35,14 +35,14 @@
 					<b>{{todaydate | date:'shortTime'}}</b><br/>
 					<b>{{todaydate | date:'fullDate'}}</b>
 				<h1>Decimal Pipe</h1>
-					<b>{{ 454.78787814 | number: '3.4-4' }}</b><br/>
+					<b>{{ 44.78787814 | number: '3.4-4' }}</b><br/>
 					<b>{{ 454.78787814 | number: '3.1-2' }}</b>
 				<h1>Json Pipe</h1>
-					<b>{{ jsonval | json }}</b>
+					<b>{{ jsonval | jsondata }}</b>
 				<h1>Percent Pipe</h1>
 					<b>{{00.54565 | percent}}</b>
 				<h1>Slice Pipe</h1>
-					<b>{{months | slice:2:6}}</b> 
+          <b>{{months | slice:2:6}}</b>
 			</div>
 
 		</div>

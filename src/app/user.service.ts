@@ -8,6 +8,6 @@ export class UserService {
   constructor() { }
 
   isLoggedIn() {
-    return false;
+    return true;
   }
 }

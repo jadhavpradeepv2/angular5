@@ -2,6 +2,22 @@
   <span>
       <a (click)="routeToHomepage()">Dynamic Homepage</a>
   </span>
+  <br>
+  <h4>(used ng-template)</h4>
+  <div *ngIf="!showTemplate else template">
+    Hello
+  </div>
+  <ng-template #template>
+    Finally I am seen! (When showTemplate is true)
+  </ng-template>
+
+  <h4>List of users having age greater than 18: (used ng-container)</h4>
+  <ng-container *ngFor="let item of items">
+    <tr *ngIf="item.age > 18">
+      {{ item.name }}
+    </tr>
+  </ng-container>
+
 </div>
 
 

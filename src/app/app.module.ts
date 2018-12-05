@@ -22,6 +22,7 @@ import { AuthGuard } from './auth.guard';
 import { LoggedInUsersGuardGuard } from './logged-in-users-guard.guard';
 import { SigninComponent } from './pages/signin/signin.component';
 import { InterceptService } from './intercept.service';
+import { JsondataPipe } from './jsondata.pipe';
 
 const routes: Routes = [
   {
@@ -83,7 +84,8 @@ const routes: Routes = [
     ParentComponentComponent,
     ChildComponentComponent,
     SiblingComponentComponent,
-    SigninComponent
+    SigninComponent,
+    JsondataPipe
   ],
   imports: [
     RouterModule.forRoot(

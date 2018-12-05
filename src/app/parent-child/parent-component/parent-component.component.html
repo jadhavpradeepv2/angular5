@@ -7,10 +7,13 @@
   <div class="controls">
     <input required="required" type="text" [(ngModel)]="anythingText" maxlength="50" formatType="alphabet" autocomplete="off" class="input-xlarge form-control">
   </div>
+  <span>{{anythingText}}</span><br>
   <a type="button" (click)="submit()">Sent To Parent</a>
 </div>
 
-<app-child-component [messageToChild]="parentMessage" (messageToparent)="receiveMessage($event)"></app-child-component>
+<app-child-component [messageToChild]="parentMessage" (messageToparent)="receiveMessage($event)">
+    <span>I am the projected content!</span>
+</app-child-component>
 <br>
 <p>Child Says: {{ childMessage }}</p>
 <br>

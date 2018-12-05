@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 })
 export class ParentComponentComponent implements OnInit {
 
-  parentMessage = 'that express yourself';
+  parentMessage = 'Message from parent';
   anythingText: string;
   childMessage: string;
   message:  string;
